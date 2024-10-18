@@ -1,0 +1,43 @@
+from random import choice
+
+userW=0
+computerW=0
+draws=0
+#define the rules of the game
+def game_rules(user,computer):
+    global userW,computerW,draws
+
+    if (user=="rock" and computer=="scissors") or (user=="scissors" and computer=="paper") or (user=="paper" and computer=="rock"):
+        print("user wins")
+        userW=userW+1
+        print("User Wins:",userW)
+         
+    elif (user=="rock" and computer=="paper") or (user=="paper" and computer=="scissors") or (user=="scissors" and computer=="rock"):
+        print("computer wins")
+        computerW=computerW+1
+        print("Computer Wins:",computerW)
+        
+    elif(user=="rock" and computer=="rock") or (user=="paper" and computer=="paper") or (user=="scissors" and computer=="scissors"):
+        print("draw")
+        draws=draws+1
+        print("Draws:",draws)
+        
+list=["rock","paper","scissors"]
+
+while True:
+    #user choice
+    user=input("Enter a choice for yourself:")
+
+    #computer choice
+    computer=choice(list)
+    print("Computer choice:",computer)
+  
+    game_rules(user,computer)
+    
+    print("Total: User Wins=", userW ,",Computer Wins=",computerW,",Draws=",draws )
+    
+    print("Still want to play? yes or no")
+    play_again=input()
+    if play_again=="no":
+        print("Thanks for playing")
+        break
